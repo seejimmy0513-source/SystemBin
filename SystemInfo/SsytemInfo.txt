@@ -1,0 +1,140 @@
+Experiment 1: Implement a Java Servlet to handle HTTP requests
+2. Short Theory / Concept
+ * A Servlet is a Java program that runs on a web server and processes requests.
+ * HttpServlet provides HTTP methods such as doGet() and doPost().
+ * doPost() processes form data submitted using the POST method.
+ * request.getParameter("name") reads form values.
+ * PrintWriter writes the response back to the browser.
+3. Algorithm / Steps
+ * Create a Dynamic Web Project in Eclipse.
+ * Configure Apache Tomcat 10 or newer.
+ * Rename hello.html.txt to hello.html.
+ * Rename helloServlet.java.txt to helloServlet.java.
+ * Keep both file names and class names consistent.
+ * The current class is named helloServelet, but the file is helloServlet.java; this must be corrected.
+ * Start Tomcat and open hello.html.
+ * Enter name and age, submit the form, and verify the response.
+
+
+
+
+
+Experiment 2: Develop a user session management system using HttpSession API
+2. Short Theory / Concept
+ * HttpSession remembers user information across multiple HTTP requests.
+ * HTTP is otherwise stateless, but session attributes store values on the server.
+ * setAttribute() saves data, and getAttribute() retrieves it.
+ * sendRedirect() moves the browser to another page.
+ * This project collects personal, contact, and education details over three pages.
+3. Algorithm / Steps
+ * Create a Dynamic Web Project with Tomcat 10+.
+ * Rename all .html.txt and .java.txt files correctly.
+ * Open Personal.html and submit name and age.
+ * PersonalServlet stores both values in HttpSession.
+ * It redirects to Contact.html.
+ * ContactServlet stores email and number.
+ * It redirects to Education.html.
+ * EducationServlet stores college and degree.
+ * It reads all six values using getAttribute() and prints the profile.
+
+
+
+
+
+
+Experiment 3: Create a JSP page with form handling
+2. Short Theory / Concept
+ * JSP is HTML mixed with Java code.
+ * It is mainly used to present dynamic web pages.
+ * <% %> contains Java scriptlet code.
+ * <%= expression %> prints a Java value in the HTML page.
+ * This experiment reads university and degree values from a form.
+3. Algorithm / Steps
+ * Create a Dynamic Web Project or a JSP-enabled project.
+ * Rename both .jsp.txt files to .jsp.
+ * Open index1.jsp.
+ * Submit university and degree using POST.
+ * Result.jsp reads both parameters.
+ * It prints both values.
+ * Verify the result in the browser.
+ * Correct the extra > after the degree expression before submission.
+
+
+
+
+
+
+Experiment 4: Implement a database-driven web application using JSP and Servlets
+2. Short Theory / Concept
+ * JDBC connects a Java web application to MySQL.
+ * Connection opens the database connection.
+ * PreparedStatement safely inserts parameter values.
+ * DriverManager.getConnection() connects to MySQL.
+ * executeUpdate() performs the INSERT operation.
+ * This application stores name and email in the students table.
+3. Algorithm / Steps
+ * Install MySQL and MySQL Connector/J.
+ * Run the SQL from database_setup_mysql.txt.
+ * Add the MySQL JDBC JAR to Eclipse/WEB-INF/lib or Maven dependencies.
+ * Rename index.jsp.txt and registerServlet.java.txt.
+ * Enter MySQL password and JDBC URL in the servlet.
+ * Open index.jsp and submit name and email.
+ * registerServlet receives POST parameters.
+ * The servlet executes an INSERT query.
+ * It displays success or the SQL exception details.
+ * Verify using SELECT * FROM students;.
+
+
+
+
+
+
+
+
+
+Experiment 5: Configure JavaMail API to send emails from a web application
+2. Short Theory / Concept
+ * JavaMail sends email through an SMTP email server.
+ * Gmail SMTP uses host smtp.gmail.com and port 587.
+ * MimeMessage represents the email message.
+ * Transport.send() sends the message.
+ * PasswordAuthentication provides sender authentication.
+ * Gmail requires an app password rather than the normal account password.
+3. Algorithm / Steps
+ * Rename Email.jsp.txt and FirstMail.java.txt.
+ * Put jakarta.mail-api and a Jakarta Mail implementation in the project.
+ * Use Tomcat 10+ with jakarta.* imports.
+ * Open Email.jsp.
+ * Enter recipient, subject, and message.
+ * Submit to the /FirstMail servlet.
+ * Configure Gmail SMTP properties.
+ * Use a newly generated Gmail app password.
+ * Remove the existing app password from code and do not share it.
+ * Verify the recipient inbox.
+
+
+
+
+
+
+
+
+
+Experiment 6: Develop a real-time chat application using WebSockets
+2. Short Theory / Concept
+ * WebSocket maintains a continuous two-way connection between browser and server.
+ * It is suitable for real-time chat because it does not need page reloads.
+ * @ServerEndpoint("/chat") defines the server WebSocket URL.
+ * @OnOpen, @OnMessage, and @OnClose handle connection events.
+ * The server sends each received message to every connected session.
+3. Algorithm / Steps
+ * Create a Dynamic Web Project supporting Jakarta WebSocket.
+ * Rename index.html.txt and ChatEndpoint.java.txt.
+ * Put ChatEndpoint in a package and deploy it on Tomcat 10+.
+ * Open index.html.
+ * The browser creates a WebSocket connection.
+ * Enter name and message, then press Send.
+ * JavaScript sends name:message.
+ * onMessage() broadcasts it to all connected users.
+ * onmessage displays received text in the textarea.
+ * The WebSocket context URL must match the deployed project name.
