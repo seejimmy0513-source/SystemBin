@@ -1,0 +1,47 @@
+package com;
+
+import jakarta.servlet.ServletException;
+
+import java.sql.*;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/register")
+public class registerServlet extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name =request.getParameter("name");
+		String email=request.getParameter("email");
+		
+		try {
+			
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","Tejas*#1234");
+		PreparedStatement ps=con.prepareStatement("INSERT INTO students VALUES (?, ?)");
+		ps.setString(1, name);
+		ps.setString(2, email);
+		ps.executeUpdate();
+		
+		
+		PrintWriter out=response.getWriter();
+		out.println("<h1> Registerd Successfully</h1>");
+		out.println("<p>Name: " + name + "</p>");
+		out.println("<p>Email:"+ email + "</p>");
+		out.println("<br><a href='index.jsp'>Register Another Student</a>");
+		
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+
+}

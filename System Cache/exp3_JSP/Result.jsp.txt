@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Education Details Result</title>
+</head>
+<body>
+<%
+String university=request.getParameter("university");
+String degree=request.getParameter("degree");
+%>
+<p><b>University:-</b><%=university %></p>
+<p><b>Degree:-</b><%=degree %>></p>
+
+
+
+</body>
+</html>

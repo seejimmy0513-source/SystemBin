@@ -1,0 +1,11 @@
+-- MySQL Database Setup for Experiment 4
+CREATE DATABASE IF NOT EXISTS mydb;
+USE mydb;
+
+CREATE TABLE IF NOT EXISTS students (
+    name VARCHAR(50),
+    email VARCHAR(50)
+);
+
+-- Verification Query:
+SELECT * FROM students;

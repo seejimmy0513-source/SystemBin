@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Live Chat</h2>
+
+<textarea id="chat" rows="10" cols="40" readonly></textarea><br><br>
+ <input type="text" id="user" placeholder="name">
+ <input type="text" id="msg" placeholder="Message">
+ <button onClick="send()">Send</button>
+ 
+ <Script>
+ //connect to websocket
+ const ws = new WebSocket("ws://localhost:8080/Experiment6/chat");
+ 
+ //recive msg from the sever and display
+ ws.onmessage=function(e){
+	 document.getElementById("chat").value += e.data + "\n";
+ };
+ 
+ //send message to the server
+ function send(){
+	 const u =document.getElementById("user").value;
+	 const m=document.getElementById("msg").value;
+	 ws.send(u+ ":" +m);
+	 document.getElementById("msg").value="";
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ </Script>
+
+</body>
+</html>

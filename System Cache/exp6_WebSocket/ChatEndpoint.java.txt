@@ -1,0 +1,32 @@
+package com;
+
+import java.util.*;
+import jakarta.websocket.*;
+import jakarta.websocket.server.ServerEndpoint;
+
+@ServerEndpoint("/chat")
+public class ChatEndpoint {
+
+    // List of connected users
+    private static Set<Session> users = Collections.synchronizedSet(new HashSet<>());
+
+    @OnOpen
+    public void onOpen(Session s) {
+        users.add(s); // User connects
+    }
+
+    @OnMessage
+    public void onMessage(String msg) {
+        // Send message to everyone
+        for (Session s : users) {
+            try {
+                s.getBasicRemote().sendText(msg);
+            } catch (Exception e) {}
+        }
+    }
+
+    @OnClose
+    public void onClose(Session s) {
+        users.remove(s); // User leaves
+    }
+}

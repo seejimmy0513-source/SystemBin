@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EXP3 Education details</title>
+</head>
+<body>
+ 
+ <h2>Eduacation details</h2>
+ <form action="Result.jsp" method="post">
+  
+  University:<input type="text" name="university">
+  Degree:<input type="text" name="degree">
+  <input type="submit">
+  
+ 
+ </form>
+</body>
+</html>

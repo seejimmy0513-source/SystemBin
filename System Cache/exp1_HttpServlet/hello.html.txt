@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+ <form action="hello" method="post">
+  
+  <h2>User Detailed form</h2>
+  Name:<input type="text" name="name"><br><br>
+  Age:<input type="number" name="age"><br><br>
+   Submit   <input type="submit" >
+
+</form>
+</body>
+</html>

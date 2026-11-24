@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page 3 : Education details</title>
+</head>
+<body>
+<h2>Education details</h2>
+
+<form action="education" method="post" >
+college name:<input type="text" name="collegename"><br><br>
+Degree: <input type="text" name="degree">
+
+<input type="submit">
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+package com;
+
+import jakarta.servlet.ServletException;
+import java.io.IOException;
+import jakarta.servlet.annotation.WebServlet;
+import java.io.PrintWriter;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/personal")
+public class PersonalServlet extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//get the user details
+		String name=request.getParameter("name");
+		String age=request.getParameter("age");
+		
+		
+		//create the session
+		HttpSession session=request.getSession();
+		
+		//add this paramters that we take form html input int eh sesisonb box using the some setAttributes values
+		session.setAttribute("name",name);
+		session.setAttribute("age", age);
+		
+		//sends to the next page
+		response.sendRedirect("Contact.html");
+	}
+
+
+}

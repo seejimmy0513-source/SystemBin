@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page 2 : Contact Details</title>
+</head>
+<body>
+<h2>Contact Details</h2>
+<form action="contact" method="post">
+Email:<input type="email" name="email">
+Number:<input type="text" name="number">
+   <input type="submit" value="next">
+
+</form>
+</body>
+</html>

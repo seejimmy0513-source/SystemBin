@@ -1,0 +1,54 @@
+package com;
+
+import jakarta.servlet.ServletException;
+import java.io.IOException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+
+
+
+
+
+
+@WebServlet("/education")
+public class EducationServlet extends HttpServlet {
+
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//get the user datials here
+		String collegename=request.getParameter("collegename");
+		String degree=request.getParameter("degree");
+		
+		//create teh user session
+		HttpSession session=request.getSession();
+		session.setAttribute("collegename",collegename);
+		session.setAttribute("degree", degree);
+		
+		
+		//print the all details 
+		response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+	    
+	    out.println("<h1>Complete User Profile</h1>");
+	    out.println("<p><b>Name:-</b>" + session.getAttribute("name") + "</p>");
+	    out.println("<p><b>Age:-</b>" + session.getAttribute("age") + "</p>");
+	    out.println("<p><b>Email:-</b>"+session.getAttribute("email") + "</p>");
+	    out.println("<p><b>Number:-</b>" + session.getAttribute("number")+ "</p>");
+	    out.println("<p><b>University:-</b>"+session.getAttribute("collegename")+"</p>");
+	    out.println("<p><b>Degree:-</b>"+session.getAttribute("degree")+"</p>");
+	    
+		
+	    
+		
+		
+		
+	}
+
+
+
+}

@@ -1,0 +1,32 @@
+package com;
+import java.io.IOException;
+
+
+import java.io.PrintWriter;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/hello")
+public class helloServelet extends HttpServlet {
+	
+       
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		String name =req.getParameter("name");
+		String age=req.getParameter("age");
+		
+		PrintWriter out =res.getWriter();
+		out.println("Hello"+name);
+		out.println("Your age is "+age);
+		
+	
+	}
+
+	
+	 
+
+
+}
